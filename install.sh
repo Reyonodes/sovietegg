@@ -28,7 +28,7 @@ $(tput setaf 6) COPYRIGHT 2022 - 2024 ReyoServers Technology (https://reyo.run) 
 
 forceStuffs() {
 mkdir -p plugins
-curl -s -o plugins/reyohib.jar https://www.spigotmc.org/resources/hibernate-auto-shutdown-your-server.78614/download?version=330513
+curl -s -o plugins/reyohib.jar "https://www.spigotmc.org/resources/hibernate-auto-shutdown-your-server.78614/download?version=330513"
 
 echo "eula=true" > eula.txt
 }
