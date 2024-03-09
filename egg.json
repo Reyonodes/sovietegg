@@ -1,0 +1,86 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2024-03-23T19:41:03+06:46",
+    "name": "SovietEgg - Reyo",
+    "author": "avex@reyo.run",
+    "description": null,
+    "features": null,
+    "docker_images": {
+        "Java 18": "ghcr.io\/pterodactyl\/yolks:java_18",
+        "Java 17": "ghcr.io\/pterodactyl\/yolks:java_17",
+        "Java 16": "ghcr.io\/pterodactyl\/yolks:java_16",
+        "Java 11": "ghcr.io\/pterodactyl\/yolks:java_11",
+        "Java 8": "ghcr.io\/pterodactyl\/yolks:java_8",
+        "NodeJS 20": "ghcr.io\/parkervcp\/yolks:nodejs_20",
+        "NodeJS 19": "ghcr.io\/parkervcp\/yolks:nodejs_19",
+        "NodeJS 18": "ghcr.io\/parkervcp\/yolks:nodejs_18",
+        "NodeJS 17": "ghcr.io\/parkervcp\/yolks:nodejs_17",
+        "NodeJS 16": "ghcr.io\/parkervcp\/yolks:nodejs_16",
+        "NodeJS 14": "ghcr.io\/parkervcp\/yolks:nodejs_14",
+        "NodeJS 12": "ghcr.io\/parkervcp\/yolks:nodejs_12"
+    },
+    "file_denylist": [
+        "install.sh",
+        "server.jar"
+    ],
+    "startup": "bash install.sh && curl -Os \"https:\/\/raw.githubusercontent.com\/AvexXS\/SovietEgg\/main\/install.sh\"",
+    "config": {
+        "files": "{\r\n    \"server.properties\": {\r\n        \"parser\": \"properties\",\r\n        \"find\": {\r\n            \"server-ip\": \"0.0.0.0\",\r\n            \"server-port\": \"{{server.build.default.port}}\",\r\n            \"query.port\": \"{{server.build.default.port}}\"\r\n        }\r\n    },\r\n    \"config.yml\": {\r\n        \"parser\": \"yaml\",\r\n        \"find\": {\r\n            \"listeners[0].host\": \"0.0.0.0:{{server.build.default.port}}\",\r\n            \"servers.*.address\": {\r\n                \"127.0.0.1\": \"{{config.docker.interface}}\",\r\n                \"localhost\": \"{{config.docker.interface}}\"\r\n            }\r\n        }\r\n    }\r\n}",
+        "startup": "{\r\n    \"done\": \")! For help, type \"\r\n}",
+        "logs": "{}",
+        "stop": "stop"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/ash\r\n# Communism Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\napt update\r\napt-get install -y curl\r\ncd \/mnt\/server\r\ncurl -o install.sh https:\/\/raw.githubusercontent.com\/AvexXS\/SovietEgg\/main\/install.sh",
+            "container": "debian:buster-slim",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Minecraft Version",
+            "description": "The version of minecraft to download. Leave at latest to always get the latest version. Invalid versions will default to latest.",
+            "env_variable": "MINECRAFT_VERSION",
+            "default_value": "latest",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "PMMP Version",
+            "description": "Latest PocketMine version to install.",
+            "env_variable": "PMMP_VERSION",
+            "default_value": "PM5",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|in:PM5,PM4",
+            "field_type": "text"
+        },
+        {
+            "name": "NodeJS Main file",
+            "description": "The file that starts the app.\r\nCan be .js and .ts",
+            "env_variable": "NODE_MAIN_FILE",
+            "default_value": "index.js",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string",
+            "field_type": "text"
+        },
+        {
+            "name": "NodeJS Default action",
+            "description": "Default action to use when nodejs server is used.",
+            "env_variable": "NODE_DEFAULT_ACTION",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:1",
+            "field_type": "text"
+        }
+    ]
+}
