@@ -28,7 +28,7 @@ $(tput setaf 6) COPYRIGHT 2022 - 2024 ReyoServers Technology (https://reyo.run) 
 
 forceStuffs() {
 mkdir -p plugins
-curl -s -o plugins/reyohib.jar "https://github.com/AvexXS/SovietEgg/raw/main/Hibernation-1.0.0.zip"
+curl -s -o plugins/reyohib.jar "https://github.com/AvexXS/SovietEgg/raw/main/Hibernation-1.0.0.jar"
 
 echo "eula=true" > eula.txt
 }
