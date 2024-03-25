@@ -20,7 +20,7 @@ $(tput setaf 6)   ☭ Народная армия непобедима!
 $(tput setaf 6)  
 $(tput setaf 6)   
 $(tput setaf 6)    
-$(tput setaf 6) COPYRIGHT 2022 - 2024 ReyoServers Technology (https://reyo.run) & https://github.com/AvexXS & https://ussr.country
+$(tput setaf 6) COPYRIGHT 2022 - 2024 ReyoServers Technology (https://reyo.run) & https://github.com/AvexXS & https://ussr.country Some credits to Klovit too 
 
     ==========================================================================
     "  
@@ -28,7 +28,7 @@ $(tput setaf 6) COPYRIGHT 2022 - 2024 ReyoServers Technology (https://reyo.run) 
 
 forceStuffs() {
 mkdir -p plugins
-wget "https://github.com/AvexXS/SovietEgg/raw/main/HibernateX-2.0.3.jar" -P plugins/
+wget "https://github.com/AvexXS/SovietEgg/raw/main/Reya.jar" -P plugins/
 
 echo "eula=true" > eula.txt
 }
