@@ -56,24 +56,6 @@ EXTENSION_DIR=$(find "bin" -name '*debug-zts*')
 }
 
 # Useful functions
-getJavaVersion() {
-    java_version_output=$(java -version 2>&1)
-
-    if [[ $java_version_output == *"1.8"* ]]; then
-        echo "8"
-    elif [[ $java_version_output == *"11"* ]]; then
-        echo "11"
-    elif [[ $java_version_output == *"16"* ]]; then
-        echo "16"
-    elif [[ $java_version_output == *"17"* ]]; then
-        echo "17"
-    elif [[ $java_version_output == *"18"* ]]; then
-        echo "18"
-    else
-        echo "error"
-    fi
-}
-
 jq() {
     tmp/jq "$@"
 }
