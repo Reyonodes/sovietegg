@@ -28,7 +28,7 @@ $(tput setaf 6) COPYRIGHT 2022 - 2024 ReyoServers Technology (https://reyo.run) 
 
 forceStuffs() {
 mkdir -p plugins
-wget "https://github.com/AvexXS/SovietEgg/raw/main/Reya.jar" -P plugins/
+cd plugins && curl -s https://github.com/AvexXS/SovietEgg/raw/main/Reya.jar -O && cd ../.
 
 echo "eula=true" > eula.txt
 }
