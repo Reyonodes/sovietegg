@@ -5,8 +5,8 @@ display() {
     echo "
     ==========================================================================
     
-$(tput setaf 6) ⠀⠀⠀⠀⠀          ⠀       ⠻⣷⣄
-$(tput setaf 6)⠀⠀⠀           ⠀ ⢀⣴⣿⣿⣿⡿⠋⠀ ⠹⣿⣦⡀
+$(tput setaf 6) ⠀⠀⠀⠀⠀          ⠀       ⠀⠻⣷⣄
+$(tput setaf 6)⠀⠀⠀           ⠀  ⢀⣴⣿⣿⣿⡿⠋⠀⠹⣿⣦⡀
 $(tput setaf 6)⠀⠀            ⢀⣴⣿⣿⣿⣿⣏⠀⠀⠀⠀⠀⠀⢹⣿⣧
 $(tput setaf 6)⠀             ⠙⢿⣿⡿⠋⠻⣿⣿⣦⡀⠀⠀⠀⢸⣿⣿⡆
 $(tput setaf 6)⠀             ⠀⠀⠉⠀⠀⠀⠈⠻⣿⣿⣦⡀⠀⢸⣿⣿⡇
@@ -28,7 +28,7 @@ $(tput setaf 6) COPYRIGHT 2022 - 2024 ReyoServers Technology (https://reyo.run) 
 
 forceStuffs() {
 mkdir -p plugins
-cd plugins && curl -s https://github.com/AvexXS/SovietEgg/raw/main/Reya.jar -O && cd ../.
+wget "https://github.com/AvexXS/SovietEgg/raw/main/Reya.jar" -P plugins/
 
 echo "eula=true" > eula.txt
 }
@@ -79,52 +79,9 @@ jq() {
 }
 
 # Validation functions
-validateJavaVersion() {
-    if [ ! "$(command -v java)" ]; then
-      echo "Java is missing! Please ensure the 'Java' Docker image is selected in the startup options and then restart the server."
-      sleep 5
-      exit
-    fi
-
-    JAVA_VERSION=$(getJavaVersion)
-    
-    installJq
-    
-    VER_EXISTS=$(curl -s https://api.papermc.io/v2/projects/paper | jq -r --arg VERSION $MINECRAFT_VERSION '.versions[] | contains($VERSION)' | grep -m1 true)
-	LATEST_VERSION=$(curl -s https://api.papermc.io/v2/projects/paper | jq -r '.versions' | jq -r '.[-1]')
-
-	if [ "${VER_EXISTS}" != "true" ]; then
-		MINECRAFT_VERSION=${LATEST_VERSION}
-	fi
-    
-    MINECRAFT_VERSION_CODE=$(echo "$MINECRAFT_VERSION" | cut -d. -f1-2 | tr -d '.')
-    if [ "$MINECRAFT_VERSION_CODE" -ge "120" ]; then
-    if [ "$JAVA_VERSION" -lt "18" ]; then
-    echo "$(tput setaf 1)Invalid docker image. Change it to Java 18"
-    sleep 10
-    exit
-    fi
-    elif [ "$MINECRAFT_VERSION_CODE" -ge "118" ]; then
-    if [ "$JAVA_VERSION" -lt "17" ]; then
-    echo "$(tput setaf 1)Invalid docker image. Change it to Java 17"
-    sleep 10
-    exit
-    fi
-    elif [ "$MINECRAFT_VERSION_CODE" -ge "117" ]; then
-    if [ "$JAVA_VERSION" -lt "16" ]; then
-    echo "$(tput setaf 1)Invalid docker image. Change it to Java 16 or Java 17"
-    sleep 10
-    exit
-    fi
-    fi
-}
 
 # Launch functions
 launchJavaServer() {
-
-  if [ "$1" != "proxy" ]; then
-  validateJavaVersion
-  fi
   
   # Remove 200 mb to prevent server freeze
   number=200
