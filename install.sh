@@ -4,7 +4,7 @@ display() {
     echo -e "\033c"
     echo "
     ==========================================================================
-    
+$(tput setaf 6) ⠀⠀FORKED FROM KLOVITEGG https://github.com/beastgamer81/klovitegg
 $(tput setaf 6) ⠀⠀⠀⠀⠀          ⠀       ⠀⠻⣷⣄
 $(tput setaf 6)⠀⠀⠀           ⠀  ⢀⣴⣿⣿⣿⡿⠋⠀⠹⣿⣦⡀
 $(tput setaf 6)⠀⠀            ⢀⣴⣿⣿⣿⣿⣏⠀⠀⠀⠀⠀⠀⢹⣿⣧
@@ -20,7 +20,7 @@ $(tput setaf 6)   ☭ Народная армия непобедима!
 $(tput setaf 6)  
 $(tput setaf 6)   
 $(tput setaf 6)    
-$(tput setaf 6) COPYRIGHT 2022 - 2024 ReyoServers Technology (https://reyo.run) & https://github.com/AvexXS & https://ussr.country Some credits to Klovit too 
+$(tput setaf 6) COPYRIGHT 2024 ReyoServers Technology (https://reyo.run) & https://github.com/AvexXS & https://github.com/beastgamer81
 
     ==========================================================================
     "  
