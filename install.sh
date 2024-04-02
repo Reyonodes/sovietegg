@@ -20,6 +20,7 @@ $(tput setaf 6)
 $(tput setaf 6)   
 $(tput setaf 6)    
 $(tput setaf 6) COPYRIGHT 2024 ReyoServers Technology (https://reyo.run) & https://github.com/AvexXS & https://github.com/beastgamer81
+$(tput setaf 6) Please note the egg is forked from KlovitEgg (This is essentially a better version for aternos like features and is maintained will be updated with new features)
 
     ==========================================================================
     "  
