@@ -4,7 +4,6 @@ display() {
     echo -e "\033c"
     echo "
     ==========================================================================
-$(tput setaf 6) ⠀⠀FORKED FROM KLOVITEGG https://github.com/beastgamer81/klovitegg
 $(tput setaf 6) ⠀⠀⠀⠀⠀          ⠀       ⠀⠻⣷⣄
 $(tput setaf 6)⠀⠀⠀           ⠀  ⢀⣴⣿⣿⣿⡿⠋⠀⠹⣿⣦⡀
 $(tput setaf 6)⠀⠀            ⢀⣴⣿⣿⣿⣿⣏⠀⠀⠀⠀⠀⠀⢹⣿⣧
